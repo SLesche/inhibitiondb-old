@@ -1,3 +1,21 @@
+#' Return entries from IDs
+#'
+#' This function retrieves entries from the database based on the provided matches.
+#' It queries each table with the corresponding IDs and returns the retrieved data.
+#'
+#' @param conn A database connection object.
+#' @param matches A list of matches containing connected IDs for each table.
+#'
+#' @return A list of data frames containing the retrieved entries for each table.
+#' @examples
+#' # Return entries from IDs
+#' conn <- DBI::dbConnect(RSQLite::SQLite(), ":memory:")
+#' matches <- list(
+#'   publication_table = c(1, 2, 3),
+#'   study_table = c(4, 5, 6),
+#'   task_table = c(7, 8, 9)
+#' )
+#' return_entries_from_id(conn, matches)
 return_entries_from_id <- function(conn, matches){
   tables = names(matches)
 

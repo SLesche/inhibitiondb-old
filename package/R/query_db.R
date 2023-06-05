@@ -1,4 +1,26 @@
-query_db <- function(conn, arguments, target_level = "data", argument_relation = "and"){
+#' Query the database based on specified arguments
+#'
+#' This function queries the database based on the provided arguments and returns the requested data.
+#' It matches primary keys from the initial queries and finds connected keys based on the argument sequence.
+#' The data is then retrieved from the database using the obtained IDs.
+#'
+#' @param conn A database connection object.
+#' @param arguments A list of SQL queries specifying the arguments.
+#'   Each query should retrieve the primary keys for matching records.
+#' @param argument_relation The relation between the arguments. Defaults to "and".
+#'   Possible values include "and" and "or" and a custom vector.
+#'
+#' @return The requested data from the database based on the specified arguments.
+#' @examples
+#' # Query the database
+#' conn <- DBI::dbConnect(RSQLite::SQLite(), ":memory:")
+#' arguments <- list(
+#'   "SELECT observation_id FROM observation_table WHERE value > 10",
+#'   "SELECT between_id FROM between_table WHERE between_var = 'A'"
+#' )
+#' query_db(conn, arguments)
+#'
+query_db <- function(conn, arguments, argument_relation = "and"){
   # Querying starts
   column_names = get_column_names(conn)
   argument_matches = list()

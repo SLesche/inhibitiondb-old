@@ -1,3 +1,20 @@
+#' Return proper IDs from argument matches
+#'
+#' This function takes a list of connected ID lists and a sequence and returns
+#' the joined version of the IDs. It determines the proper IDs based on the
+#' argument sequence, ensuring that the IDs are appropriately filtered and
+#' combined according to the argument relationship.
+#'
+#' @param argument_matches A list of connected ID lists for each argument.
+#' @param argument_sequence The sequence of the arguments.
+#'
+#' @return A list of proper IDs for each table based on the argument matches
+#'   and sequence.
+#'
+#' @examples
+#' # Return the proper IDs based on argument matches and sequence
+#' return_proper_ids(argument_matches, argument_sequence)
+#'
 return_proper_ids <- function(argument_matches, argument_sequence){
   # Takes a list of connected id lists and a sequence and returns the joined version
 

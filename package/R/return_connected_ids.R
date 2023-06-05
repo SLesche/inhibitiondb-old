@@ -1,3 +1,19 @@
+#' Return connected IDs based on initial matches
+#'
+#' This function takes the initial matches and finds connected IDs based on the provided table and IDs.
+#' It performs a forward and backward search to retrieve the relevant IDs.
+#'
+#' @param conn A database connection object.
+#' @param table The table name from which the IDs are retrieved.
+#' @param ids The initial IDs to start the search.
+#'
+#' @return A list of connected IDs for each table.
+#' @examples
+#' # Return connected IDs
+#' conn <- DBI::dbConnect(RSQLite::SQLite(), ":memory:")
+#' table <- "observation_table"
+#' ids <- c(1, 2, 3)
+#' return_connected_ids(conn, table, ids)
 return_connected_ids <- function(conn, table, ids){
   # TODO: testing
 
