@@ -51,14 +51,11 @@ return_connected_ids <- function(conn, table, ids){
       # Get their id-names
       id_name = return_id_name_from_table(table_to_query)
 
-      # Find all other id-variables in that table
-      found_ids = extract_table_ids(conn, table_to_query)
-
       # Filter to only include the relevant ids
       if (mode == "backward"){
-        relevant_ids = found_ids[found_ids[[origin_id]] %in% matching_ids, ]
+        relevant_ids = extract_table_ids(conn, table_to_query, origin_id, matching_ids)
       } else {
-        relevant_ids = found_ids[found_ids[[id_name]] %in% matching_ids, ]
+        relevant_ids = extract_table_ids(conn, table_to_query, id_name, matching_ids)
       }
 
       # Add the table-primary key to the ids-list
