@@ -4,7 +4,7 @@
 \alias{extract_table_ids}
 \title{Extract IDs from a database table}
 \usage{
-extract_table_ids(conn, table, variable = NULL, ids = NULL)
+extract_table_ids(conn, table, variable = NULL, id_vector = NULL)
 }
 \arguments{
 \item{conn}{The connection object or database connection string.}

@@ -16,9 +16,16 @@
 #' statement <- make_valid_sql(conn = my_conn, variable = "name", operator = "equal", values = c("John", "Jane"))
 #' statement
 make_valid_sql <- function(conn, variable, operator, values) {
-  # First find out which table the variable is from
-  table = find_relevant_tables(conn, variable)
-  id_name = return_id_name_from_table(table)
+  # if the variable is an id-name, it should be filtered in its table
+  is_table = return_table_name_from_id(variable)
+  if (is_table %in% dbListTables(conn)){
+    id_name = variable
+    table = is_table
+  } else {
+    # First find out which table the variable is from
+    table = find_relevant_tables(conn, variable)
+    id_name = return_id_name_from_table(table)
+  }
 
   # Then turn this into a statement
   # Check validity of operator
