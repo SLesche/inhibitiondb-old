@@ -37,14 +37,3 @@ The updated list with the added argument.
 \description{
 This function adds an argument to a list based on specified conditions.
 }
-\examples{
-# Automatic argument creation
-my_list <- list()
-my_list <- add_argument(my_list, conn = my_conn, variable = "n_participants", operator = "greater", values = 500)
-my_list
-
-# Manual argument creation
-my_list <- add_argument(my_list, conn = my_conn, manual = TRUE, statement = "SELECT dataset_id FROM dataset_table WHERE n_participants > 500")
-my_list
-
-}

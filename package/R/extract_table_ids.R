@@ -4,6 +4,8 @@
 #'
 #' @param conn The connection object or database connection string.
 #' @param table The name of the database table from which to extract IDs.
+#' @param variable Optional. Works in conjunction with id_vector to return a filtered version
+#' @param id_vector Optional. Only return entries that contain these ids
 #'
 #' @return A data frame or tibble containing the extracted IDs.
 #' @examples

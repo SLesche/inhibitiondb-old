@@ -10,6 +10,10 @@ extract_table_ids(conn, table, variable = NULL, id_vector = NULL)
 \item{conn}{The connection object or database connection string.}
 
 \item{table}{The name of the database table from which to extract IDs.}
+
+\item{variable}{Optional. Works in conjunction with id_vector to return a filtered version}
+
+\item{id_vector}{Optional. Only return entries that contain these ids}
 }
 \value{
 A data frame or tibble containing the extracted IDs.
