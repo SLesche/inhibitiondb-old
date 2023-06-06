@@ -135,9 +135,9 @@ return_connected_ids <- function(conn, table, ids){
           newlist = list()
           newlist$table = other_table_data$table[j]
           if (other_table_data$mode[j] == "backward"){
-            newlist$ids = relevant_ids[, other_table_data$origin[j]]
+            newlist$ids = unique(relevant_ids[, other_table_data$origin[j]])[!is.na(unique(relevant_ids[, other_table_data$origin[j]]))]
           } else {
-            newlist$ids = relevant_ids[, other_table_data$ids[j]]
+            newlist$ids = unique(relevant_ids[, other_table_data$ids[j]])[!is.na(unique(relevant_ids[, other_table_data$ids[j]]))]
           }
           newlist$mode = other_table_data$mode[j]
           newlist$origin_id = other_table_data$origin[j]
